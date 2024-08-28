@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="NL2SQL360: A Multi-angle Evaluation Framework">
-  <meta name="keywords" content="NL2SQL, Text-to-SQL, Database, T2S, SQL, Evaluation">
+    content="Spider2-V: How Far Are Multimodal Agents From Automating Data Science and Engineering Workflows?">
+  <meta name="keywords" content="Data Science and Engineering, Professional Enterprise Application, Multi-modal Agent, Human Computer Interaction">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NL2SQL360: A Multi-angle Evaluation Framework</title>
+  <title>Spider2-V: How Far Are Multimodal Agents From Automating Data Science and Engineering Workflows?</title>
+  <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -22,447 +25,1864 @@
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="static/images/favicon.png">
+
+  <link rel="stylesheet" href="./stylesheets/layout.css">
+  <link rel="stylesheet" href="./stylesheets/index.css">
+  <link rel="stylesheet" href="./bowe_componets/css/bootstrap.table.min.css">
+    
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script> -->
+  <style>
+    pre {
+      max-height: 500px; /* Adjust as needed */
+      overflow: auto;
+    }
+  </style>
+  <style>
+    .highlight-quote {
+      background-color: #f9f9f9; /* Light background color */
+      border-left: 4px solid #007BFF; /* Blue left border */
+      padding: 10px 15px; /* Padding inside the block */
+      margin: 15px 0; /* Margin around the block */
+      color: #333; /* Text color */
+    }
+    .highlight-quote-title {
+      font-weight: bold; /* Bold font for title */
+      margin-top: 0; /* Remove top margin */
+      margin-bottom: 10px; /* Space between title and content */
+      color: #007BFF; /* Same color as the border */
+    }
+    .highlight-quote-content {
+      font-style: italic; /* Italic font style for content */
+    }
+    .highlight-quote-content pre {
+      overflow: auto; /* Ensure the content is scrollable if it's too wide */
+    }
+  </style>
+  <style>
+    .two-column-container {
+      display: flex;
+      gap: 10px; /* Optional: space between columns */
+    }
+    .two-column {
+      flex: 1;
+      background-color: #f9f9f9;
+      padding: 10px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .two-column pre {
+      max-height: 200px;
+      max-width: 100%;
+      overflow: auto; /* Ensure the code block is scrollable if it's too wide */
+      box-sizing: border-box;
+    }
+    .two-column boldtitle {
+      font-weight: bold;
+      font-size: 1.5em; /* Adjust as needed */
+      margin: 10px 0; /* Optional: add some margin */
+    }
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px; /* Optional: space between images */
+    }
+    .right-column img {
+      flex: 1;
+      width: 100%;
+      object-fit: contain;
+    }
+</style>
 </head>
+
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://github.com/HKUSTDial">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://www.xlang.ai/">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
         </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://github.com/HKUSTDial/NL2SQL_Handbook">
-            NL2SQL Handbook
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
           </a>
+          <div class="navbar-dropdown">
+
+            <a class="navbar-item" href="https://yale-lily.github.io/spider">
+              Spider
+            </a>
+            <a class="navbar-item" href="https://github.com/HKUNLP/UnifiedSKG">
+              UnifiedSKG
+            </a>
+            <a class="navbar-item" href="https://github.com/Yushi-Hu/IC-DST">
+              IC-DST
+            </a>
+            <a class="navbar-item" href="https://github.com/HKUNLP/icl-selective-annotation">
+              Selective Annotation
+            </a>
+            <a class="navbar-item" href="https://lm-code-binder.github.io/">
+              Binder
+            </a>
+            <a class="navbar-item" href="https://ds1000-code-gen.github.io/">
+              DS-1000
+            </a>
+            <a class="navbar-item" href="https://instructor-embedding.github.io/">
+              Instructor
+            </a>
+            <a class="navbar-item" href="https://text-to-reward.github.io/">
+              Text2Reward
+            </a>
+            <a class="navbar-item" href="https://github.com/xlang-ai/OpenAgents">
+              OpenAgents
+            </a>
+            <a class="navbar-item" href="https://github.com/OpenLemur/lemur">
+              Lemur-70B
+            </a>
+            <a class="navbar-item" href="https://arks-codegen.github.io/">
+              ARKS
+            </a>
+            <a class="navbar-item" href="https://os-world.github.io/">
+              OSWorld
+            </a>
+            <a class ="navbar-item" href="https://brightbenchmark.github.io/">
+              BRIGHT
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              Spider2-V: How Far Are Multimodal Agents From Automating Data Science and Engineering Workflows?
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://rhythmcao.github.io">Ruisheng Cao</a><sup>12</sup>,</span>
+              <span class="author-block">
+                <a href="https://lfy79001.github.io/">Fangyu Lei</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://github.com/FredWuCZ">Haoyuan Wu</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://chenjix.github.io/">Jixuan Chen</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://github.com/fyq5166">Yeqiao Fu</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://gao-hongcheng.github.io/">Hongcheng Gao</a><sup>1</sup>,</span>
+              <br>
+              <span class="author-block">
+                <a href="https://thisisxxz.com/">Xinzhuang Xiong</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=4xNsDNgAAAAJ&hl=en">Hanchong Zhang</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://github.com/Amber-YC">Yuchen Mao</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://huwenjing0819.github.io/">Wenjing Hu</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://tianbaoxie.com">Tianbao Xie</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://github.com/importpandas">Hongsheng Xu</a><sup>2</sup>,</span>
+              <br>
+              <span class="author-block">
+                <a href="https://zdy023.github.io/">Danyang Zhang</a><sup>12</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.sidaw.xyz/">Sida Wang</a>,</span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/ruoxi-sun-84a85457/">Ruoxi Sun</a><sup>3</sup>,</span>
+              <span class="author-block">
+                <a href="https://pengcheng.in/">Pengcheng Yin</a><sup>4</sup>,</span>
+              <span class="author-block">
+                <a href="http://cmxiong.com/">Caiming Xiong</a><sup>5</sup>,</span>
+              <span class="author-block">
+                <a href="https://niansong1996.github.io/">Ansong Ni</a><sup>6</sup>,</span>
+              <br>
+              <span class="author-block">
+                <a href="https://siviltaram.github.io/">Qian Liu</a><sup>7</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.victorzhong.com/">Victor Zhong</a><sup>8</sup>,</span>
+              <span class="author-block">
+                <a href="https://coai-sjtu.github.io/">Lu Chen</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://x-lance.github.io/kaiyu/">Kai Yu</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://taoyds.github.io/">Tao Yu</a><sup>1</sup></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>The University of Hong Kong,</span>
+              <span class="author-block"><sup>2</sup>Shanghai Jiao Tong University,</span>
+              <span class="author-block"><sup>3</sup>Google Cloud AI Research,</span>
+              <br>
+              <span class="author-block"><sup>4</sup>Google Deepmind,</span>
+              <span class="author-block"><sup>5</sup>Salesforce Research,</span>
+              <span class="author-block"><sup>6</sup>Yale University,</span>
+              <span class="author-block"><sup>7</sup>Sea AI Lab,</span>
+              <span class="author-block"><sup>8</sup>University of Waterloo</span>
+              <br>
+              <span class="author-email"><b>Email to: </b><a href="mailto:ruishengcao@gmail.com" style="text-decoration: underline;">ruishengcao@gmail.com</a> , <a href="mailto:tyu@cs.hku.hk" style="text-decoration: underline;">tyu@cs.hku.hk</a></span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="static/data/Spider2-V.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/xlang-ai/Spider2-V"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/xlang-ai/Spider2-V/tree/main/evaluation_examples#evaluation-examples"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-database"></i>
+                    </span>
+                    <span>Data</span>
+                  </a>
+                </span>
+                <!-- Virtual Machine Link. -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/xlangai/ubuntu_spider2v/tree/main"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-desktop"></i>
+                    </span>
+                    <span>VM Snapshots</span>
+                  </a>
+                </span>
+                <!-- Tool Documents Link. -->
+                <span class="link-block">
+                  <a href="https://drive.usercontent.google.com/download?id=1aGaHXDkBeoUZ9EOIPj7iIRFra_2FjJoZ&export=download&authuser=0&confirm=t" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-robot"></i>
+                    </span>
+                    <span>Tool Docs</span>
+                  </a>
+                </span>
+                <!-- Twitter Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://twitter.com/TianbaoX/status/1778781521253667267" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-twitter"></i>
+                    </span>
+                    <span>Twitter</span>
+                  </a>
+                </span> -->
+                <!-- Data Viewer. -->
+                <span class="link-block">
+                  <a href="explorer.html" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-search"></i>
+                    </span>
+                    <span>Task Viewer</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#leaderboard" class="button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-trophy"></i>
+                    </span>
+                    <span>Leaderboard</span>
+                  </a>
+                </span>
+
+                <!-- Slides Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://docs.google.com/presentation/d/1-r889Nb9n7SeZqrj-ryNqJLoMzp7aGNU2ihO8nUdEcE/edit?usp=sharing"
+                    target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-google"></i>
+                    </span>
+                    <span>Slides</span>
+                  </a>
+                </span> -->
+                <!-- Discord Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://discord.gg/4Gnw7eTEZR" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-discord"></i>
+                    </span>
+                    <span>Discord</span>
+                  </a>
+                </span> -->
+
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="column is-full">
+        <div class="image-container-wrapper">
+          <div class="image-container">
+              <img src="static/images/overview.png" width="100%" alt="Spider2-V Overview" class="responsive-image">
+          </div>
+          <div class="scroll-hint">scroll down to view more</div>
+        </div>
+        <md-block>
+          **Spider2-V** is a multimodal agent benchmark spanning across the entire data science and engineering workflow (e.g., five task examples above). It involves various professional enterprise-level applications and includes intensive GUI controls apart from code writing throughout the real-time multi-turn interaction with an executable computer environment.
+        </md-block>
+      </div>
+    </div>
+  </section>
 
-  </div>
-</nav>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-wdith">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <md-block>
+              Data science and engineering workflows often span multiple stages, from warehousing to orchestration, using tools like *BigQuery*, *dbt*, and *Airbyte*. As vision language models (VLMs) advance in multimodal understanding and code generation, VLM-based agents could potentially automate these workflows by generating SQL queries, Python code, and GUI operations. This automation can improve the productivity of experts while democratizing access to large-scale data analysis. In this work, we introduce Spider2-V, the first multimodal agent benchmark focusing on professional data science and engineering workflows, featuring 494 real-world tasks in authentic computer environments and incorporating 20 enterprise-level professional applications. These tasks, derived from real-world use cases, evaluate the ability of a multimodal agent to perform data-related tasks by writing code and managing the GUI in enterprise data software systems. To balance realistic simulation with evaluation simplicity, we devote significant effort to developing automatic configurations for task setup and carefully crafting evaluation metrics for each task. Furthermore, we supplement multimodal agents with comprehensive documents of these enterprise data software systems. Our empirical evaluation reveals that existing state-of-the-art LLM/VLM-based agents do not reliably automate full data workflows (14.0% success). Even with step-by-step guidance, these agents still underperform in tasks that require fine-grained, knowledge-intensive GUI actions (16.2%) and involve remote cloud-hosted workspaces (10.6%). We hope that Spider2-V paves the way for autonomous multimodal agents to transform the automation of data science and engineering workflow.
+            </md-block>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Spider2-V Framework Infrastructure</h2>
+      <div class="content has-text-justified">
+        <img src="static/images/env.png" width="100%" alt="infrastructure" class="responsive-image">
+        <md-block>
+          Overview of **Spider2-V**, which is featured by:
+            - 494 real-world tasks across the complete data science and engineering workflows (from <i>data warehousing</i> to <i>orchestration</i>)
+            - incorporation of 20 professional enterprise-level applications (e.g., *BigQuery*, *dbt*, *Airbyte*, etc.)
+            - integration of both command line (CLI) and graphical user interfaces (GUI), especially for intensive GUI controls
+            - an interactive executable computer environment (adapted from our previous work [OSWorld](https://os-world.github.io/))
+            - a document warehouse ([Download](https://drive.usercontent.google.com/download?id=1aGaHXDkBeoUZ9EOIPj7iIRFra_2FjJoZ&export=download&authuser=0&confirm=t)) for agent retrieval
+        </md-block>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Executable Environment</h2>
+      <div class="content has-text-justified">
+        <img src="static/images/action_and_observation_space.png" width="100%" alt="executable environment" class="responsive-image">
+        <md-block>
+          - The interactive environment is a computer desktop of Ubuntu operating system.
+          - The action space can be 1) pyautogui code, or 2) customized JSON dict.
+          - The observation space can be 1) image-style screenshot, and 2) text-format accessibility tree.
+        </md-block>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container is-max-desktop">
+
+      <h2 class="title is-3">Task Demonstration</h2>
+      <md-block>
+        We present one task example (with application <code>Airbyte</code> and uuid <code>66936a8e-5cbe-4638-a03a-3ae92eb81e6c</code>) below to showcase:
+        - 1. <code>.json</code> data format;
+        - 2. two types of task intructions (<i>abstract</i> and <i>verbose</i>);
+        - 3. environment setup methods;
+        - 4. video recording and action trajectory to complete the task;
+        - 5. task-specific evaluation metric.
+      </md-block>
+    </div>
+    <div class="cover" id="contentTask">
+      <!-- Baseline. -->
+      <div class="container-t">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="infoCard">
+              <div class="infoBody">
+                <div class="tabs is-centered example_lst1">
+                  <ul>
+                    <li><a title="Data Format">Data Format</a></li>
+                    <li><a title="Instructions">Instructions</a></li>
+                    <li><a title="Env Setup">Env Setup</a></li>
+                    <li class="is-active"><a title="Action Trajectory">Action Trajectory</a></li>
+                    <li><a title="Evaluation">Evaluation</a></li>
+                  </ul>
+
+                </div>
+                <script type="text/javascript">
+                  document.querySelectorAll(".example_lst1 li").forEach(e => {
+                    e.addEventListener("click", Click_1)
+                  })
+
+                  function Click_1(eve) {
+                    const iTxt = eve.srcElement.innerText
+                    for (let v of document.querySelectorAll(".example_lst1 a")) {
+                      if (iTxt === v.innerText) {
+                        v.parentElement.className = "is-active";
+                      } else {
+                        v.parentElement.className = "";
+                      }
+                    }
+                    for (let block of document.getElementsByClassName('lib_examples')) {
+                      if (block.id.includes("Task")) {
+                        block.style.display = (block.title === iTxt) ? 'block' : 'none';
+                      }
+                    }
+                  }
+
+                </script>
+                <div title="Data Format" class="lib_examples" id="TaskPanel1" style="display: none;">
+                  <!-- <div class="content has-text-justified"> -->
+                  <md-block>
+                    Here is a brief explanation on some critical fields in the <code>.json</code> file (detailed in [Data Format](https://github.com/xlang-ai/Spider2-V/tree/main/evaluation_examples#task-format)):
+
+                    • <code>instruction</code>: the task instruction, user intent, or task goal<br>
+                    • <code>config</code>: a list of functions to initialize or reset the environment in the virtual machine. Each function is represented by a JSON dict, where the <code>type</code> field indicates the function name and the <code>parameters</code> field indicates the parameters of the function<br>
+                    • <code>evaluator</code>: the evaluation function to check the agent's output. Concretely, the <code>func</code> field indicates the function name, the <code>result</code> field indicates how to obtain the predicted result from the agent, and the <code>expected</code> field indicates the golden result of the current task<br>
+                  </md-block>
+                  <pre class="line-numbers" data-language="JSON"><code class="language-json">{
+  "id": "66936a8e-5cbe-4638-a03a-3ae92eb81e6c",
+  "snapshot": "airbyte",
+  "instruction": "I have established a connection from Faker to local .csv file. Could you help me change the running schedule? I hope it can be replicated at 6:00 pm every day.",
+  "source": [
+      "https://docs.airbyte.com/using-airbyte/core-concepts/sync-schedules"
+  ],
+  "related_apps": [
+      "chromium",
+      "airbyte",
+      "docker"
+  ],
+  "tags": [
+      "gui",
+      "data_ingestion_and_integration",
+      "abstract"
+  ],
+  "action_number": 6,
+  "config": [
+      {
+          "type": "copyfile_from_host_to_guest",
+          "parameters": {
+              "src": "evaluation_examples/examples/airbyte/66936a8e-5cbe-4638-a03a-3ae92eb81e6c/connection.json",
+              "dest": "/home/user/connection.json"
+          }
+      },
+      {
+          "type": "script_and_execute",
+          "parameters": {
+              "src": "evaluation_examples/examples/airbyte/66936a8e-5cbe-4638-a03a-3ae92eb81e6c/init.sh",
+              "dest": "/home/user/init.sh"
+          }
+      },
+      {
+          "type": "google_chrome_browser",
+          "parameters": {
+              "debugging_port": 1337,
+              "listening_port": 9222,
+              "urls": [
+                  "https://www.bing.com/"
+              ]
+          }
+      },
+      {
+          "type": "airbyte_webui_init",
+          "parameters": {
+              "listening_port": 9222,
+              "url": "http://localhost:8000",
+              "actions": [
+                  {
+                      "type": "login",
+                      "email": "anonym@gmail.com",
+                      "company": "ANONYM"
+                  }
+              ]
+          }
+      }
+  ],
+  "evaluator": {
+      "postconfig": [],
+      "func": "check_include_exclude",
+      "result": {
+          "type": "vm_script_output",
+          "src": "evaluation_examples/examples/airbyte/66936a8e-5cbe-4638-a03a-3ae92eb81e6c/eval.sh",
+          "dest": "/home/user/eval.sh"
+      },
+      "expected": {
+          "type": "rule",
+          "rules": {
+              "include": [
+                  "succeed"
+              ],
+              "exclude": [
+                  "failed"
+              ]
+          }
+      }
+  },
+  "counterpart": "7657611f-2e32-47a1-89c9-3b887d803bc5"
+}</code></pre>
+                </div>
+
+                <div title="Instructions" class="lib_examples" id="TaskPanel2" style="display: none;">
+                  <!-- <div class="content has-text-justified"> -->
+                  <md-block>
+                    The current task (with professional application <code>Airbyte</code> and uuid <code>66936a8e-5cbe-4638-a03a-3ae92eb81e6c</code>) has an <mark><i>abstract</i></mark> instruction, which means it only gives a brief or high-level description of the task without stepwise guidance.
+                  </md-block>
+                  <div class="highlight-quote">
+                    <h3 class="highlight-quote-title">Abstract Instruction</h3>
+                    <div class="highlight-quote-content">
+                    
+                    I have established a connection from Faker to local .csv file. Could you help me change the running schedule? I hope it can be replicated at 6:00 pm every day.
+                    </div>
+                  </div>
+                  
+                  <md-block>For its counterpart, namely the task with professional application <code>Airbyte</code>and uuid <code>7657611f-2e32-47a1-89c9-3b887d803bc5</code>, the instruction is <mark><i>verbose</i></mark>, which means it also provides a detailed step-by-step guidance on how to finish the task.
+                  </md-block>
+                  <div class="highlight-quote">
+                    <h3 class="highlight-quote-title">Verbose Instruction</h3>
+                    <div class="highlight-quote-content">
+
+                    I have established a connection from Faker to local .csv file. Could you help me change the running schedule? I hope it can be replicated at 6:00 pm every day. To finish this task, we need to navigate to the settings page and then change the value of the scheduler. Concretely,<br>
+            
+                        1) Click the connection row whose name is "Sample Data (Faker) -> Local CSV" in the main panel;<br>
+                        2) Next, click the "Replication" item on the right of "Status" and "Job History";<br>
+                        3) We can see a panel with name "Configuration". Click this panel, we will see two rows called "Schedule type" and "Replication frequency";<br>
+                        4) To set the schedule as 6:00 p.m. every day, firstly we need to change the schedule type. In the drop-down options on the right, select the schedule type "Cron" instead of "Scheduled";<br>
+                        5) One more thing is to input the value "0 0 18 * * ?" into the cron expression box. After that, you should also find there is one phrase "At 06:00 PM" under the input box;<br>
+                        6) Finally, click the button called "Save changes" at the bottom right of this web page. The schedule is successfully altered.
+                    </div>
+                  </div>
+
+                </div>
+
+                <div title="Env Setup" class="lib_examples" id="TaskPanel3" style="display: none;">
+
+                  <!-- <div class="content has-text-justified"> -->
+                  <md-block>
+                    To initialize the environment for <code>Airbyte</code> task with uuid <code>66936a8e-5cbe-4638-a03a-3ae92eb81e6c</code>, we need to invoke the following environment setup functions sequentially:
+                  </md-block>
+                  <!-- </div> -->
+                  <div class="two-column-container">
+                    <div class="two-column">
+                      <boldtitle>1. File transfer</boldtitle>
+
+                      <pre class="line-numbers" data-language="JSON"><code class="language-json">{
+  "type": "copyfile_from_host_to_guest",
+  "parameters": {
+      "src": "evaluation_examples/examples/airbyte/66936a8e-5cbe-4638-a03a-3ae92eb81e6c/connection.json",
+      "dest": "/home/user/connection.json"
+  }
+}</code></pre>
+
+                      <boldtitle>2. Script Execution</boldtitle>
+                      <pre class="line-numbers" data-language="JSON"><code class="language-json">{
+  "type": "script_and_execute",
+  "parameters": {
+      "src": "evaluation_examples/examples/airbyte/66936a8e-5cbe-4638-a03a-3ae92eb81e6c/init.sh",
+      "dest": "/home/user/init.sh"
+  }
+}</code></pre>
+
+                      <boldtitle>3. Application Launch</boldtitle>
+                      <pre class="line-numbers" data-language="JSON"><code class="language-json">{
+  "type": "google_chrome_browser",
+  "parameters": {
+      "debugging_port": 1337,
+      "listening_port": 9222
+  }
+}</code></pre>
+
+                      <boldtitle>4. Playwright Automation</boldtitle>
+                      <pre class="line-numbers" data-language="JSON"><code class="language-json">{
+  "type": "airbyte_webui_init",
+  "parameters": {
+      "listening_port": 9222,
+      "url": "http://localhost:8000",
+      "actions": [
+          {
+              "type": "login",
+              "email": "anonym@gmail.com",
+              "company": "ANONYM"
+          }
+      ]
+  }
+}</code></pre>
+                    </div>
+                    <div class="two-column right-column">
+                      <img src="./static/images/file_transfer.png" alt="env setup 1">
+                      <img src="./static/images/script_execution.png" alt="env setup 2">
+                      <img src="./static/images/application_launch.png" alt="env setup 3">
+                      <img src="./static/images/playwright_simulation.png" alt="env setup 4">
+                    </div>
+                  </div>
+                  
+                </div>
+
+                <div title="Action Trajectory" class="lib_examples" id="TaskPanel4" style="display: block;">
+                  <md-block>
+                  **Note that:** the action trajectory is generated by the GPT-4o agent and it successfully completes the task 🎉 !<br>
+                  For a quick glance on more task exmaples, please refer to the [<i class="fas fa-search"></i> <b>Task Viewer</b>](explorer.html) page.
+                  </md-block>
+                  <h2 class="left-aligned">Task Instruction</h2>
+                  <div class="highlight-quote">
+                    <div class="highlight-quote-content">
+                    
+                    I have established a connection from Faker to local .csv file. Could you help me change the running schedule? I hope it can be replicated at 6:00 pm every day.
+                    </div>
+                  </div>
+                  <h2 class="left-aligned">Video Recording</h2>
+                  <!-- Note that, this trajectory is generated by the GPT-4o agent and it successfully completes the task. -->
+                  <video controls muted loop autoplay id="videoPlayer" width="100%">
+                    <source src="static/videos/66936a8e-5cbe-4638-a03a-3ae92eb81e6c.mp4" type="video/mp4">
+                  </video>
+                  <script>
+                      const videoPlayer = document.getElementById('videoPlayer');
+                      // Set playback speed to 8x once the video metadata is loaded
+                      videoPlayer.addEventListener('loadedmetadata', function() {
+                          videoPlayer.playbackRate = 8;
+                          videoPlayer.play();
+                      });
+                  </script>
+                  <h2 class="left-aligned">Action Trajectory</h2>
+                  <pre class="line-numbers"><code class="language-python">## Action 1
+index_80 = (417, 288)
+pyautogui.click(index_80)
+time.sleep(1)
+
+## Action 2
+index_83 = (502, 307)
+pyautogui.click(index_83)
+time.sleep(1)
+
+## Action 3
+index_91 = (883, 404)
+pyautogui.click(index_91)
+time.sleep(1)
+
+## Action 4
+index_102 = (1130, 481)
+pyautogui.click(index_102)
+time.sleep(1)
+
+## Action 5
+index_121 = (1130, 782)
+pyautogui.click(index_121)
+time.sleep(1)
+                    
+## Action 6
+index_98 = (1130, 430)
+pyautogui.click(index_98)
+time.sleep(1)
+
+## Action 7
+index_105 = (1130, 560)
+pyautogui.click(index_105)
+time.sleep(1)
+
+## Action 8
+index_103 = (1050, 481)
+# Clear the current cron expression
+pyautogui.click(index_103)
+pyautogui.hotkey('ctrl', 'a')
+pyautogui.press('backspace')
+time.sleep(1)
+                    
+# Enter the new cron expression
+pyautogui.typewrite('0 18 * * *')
+time.sleep(1)
+
+## Action 9
+index_103 = (1050, 481)
+# Clear the current cron expression
+pyautogui.click(index_103)
+pyautogui.hotkey('ctrl', 'a')
+pyautogui.press('backspace')
+time.sleep(1)
+
+# Enter the new Quartz cron expression
+pyautogui.typewrite('0 0 18 * * ?')
+time.sleep(1)
+
+## Action 10
+index_134 = (1426, 834)
+pyautogui.click(index_134)
+time.sleep(1)
+
+## Action 11
+DONE</code>
+                  </pre>
+                </div>
+
+                <div title="Evaluation" class="lib_examples" id="TaskPanel5" style="display: none;">
+
+                  <md-block>
+                    All evaluation methods can be classified into three categories below:
+                  </md-block>
+                  <img src="static/images/evaluation.png" alt="evaluation" style="max-width: 100%; margin: 0 auto;" />
+
+                  In the current task, we adopt the information-based metric to check whether the schedule is correctly altered to <code>0 0 18 * * *</code> or <code>0 0 18 * * ?</code>.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Data Statistics. -->
+      <h2 class="title is-3">Data Statistics and Comparison</h2>
+      <md-block>
+        We classify all 494 tasks in Spider2-V into 7 categories and 11 software sub-categories with main statistics below.</md-block>
+      <div class="columns is-centered" style="align-items: flex-end; display: flex;">
+
+        <div class="column is-half">
+          <div class="content has-text-centered">
+            <p>
+              <i>“verbose”</i> means a step-by-step guideline on how to complete the task is included in the instruction.<br />
+            </p>
+            <img src="static/images/statistics.png" alt="data-overview" style="max-width: 80%;" />
+            <h5>
+              Key statistics of <b>Spider2-V</b>.<br />
+            </h5>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="content has-text-centered">
+            <p>
+              Based on task categories and professional applications
+              to showcase the content intuitively.
+            </p>
+            <img src="static/images/pie_chart.png" alt="data-composition" style="max-width: 80%;" />
+            <h5>
+              Distribution of tasks in <b>Spider2-V</b><br />
+            </h5>
+          </div>
+        </div>
+      </div>
+      <md-block>We make a comparison of **Spider2-V** against some other different benchmarks for VLM/LLM-based agents. <br>
+        **The headers indicate:** the research field (Field),
+        whether an executable environment is provided (Exec. Env.?), whether enterprise service is utilized
+        (Enter. Serv.?), whether GUI actions are supported (GUI Support?) and some other statistics (e.g., number of involved applications or websites, number of execution-based evaluation functions).</md-block><br>
+      <div class="column is-full-width interpolation-panel">
+        <div class="columns">
+          <div class="column is-one-third">
+            <table class="table is-hoverable is-striped" style="margin: 0 auto; background-color: rgba(0,0,0,0)">
+              <thead>
+                <tr>
+                  <th style="border: 0">&nbsp;</th>
+                  <th style="text-align: center; vertical-align: middle" rowspan="1">Spider2-V</th>
+                </tr>
+
+              </thead>
+              <tr>
+                <td style="font-weight: bold; text-align: left; vertical-align: middle">Field</td>
+                <td style="text-align: center; vertical-align: middle">Data Science &</br>Engineering</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; text-align: left;"># Tasks</td>
+                <td style="text-align: center; vertical-align: middle">494</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; text-align: left;">Exec. Env. ?</td>
+                <td style="text-align: center; vertical-align: middle">✔️</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; text-align: left;">Enter. Serv.?</td>
+                <td style="text-align: center; vertical-align: middle">✔️</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; text-align: left;">GUI Support?</td>
+                <td style="text-align: center; vertical-align: middle">✔️</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; text-align: left;"># Apps/Sites?</td>
+                <td style="text-align: center; vertical-align: middle">20</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; text-align: left;"># Exec. Eval. Func.</td>
+                <td style="text-align: center; vertical-align: middle">151</td>
+              </tr>
+            </table>
+
+          </div>
+          <div class="column is-two-thirds">
+            <div class="table-container">
+              <div class="columns">
+                <div class="column">
+                  <table class="table is-hoverable is-striped"
+                    style="margin: 0 auto; background-color: rgba(0,0,0,0); width:600px; text-align: center;">
+                    <thead style="text-align: center;">
+                      <tr>
+                        <th style="width: 33%"><a href="https://yale-lily.github.io/spider" target="_blank">Spider1.0</a></th>
+                        <th style="width: 33%"><a href="https://ds1000-code-gen.github.io/" target="_blank">DS1000</a></th>
+                        <th style="width: 33%"><a href="https://github.com/google-research/arcade-nl2code/" target="_blank">Arcade</a></th>
+                        <th style="width: 33%"><a href="https://intercode-benchmark.github.io/" target="_blank">Intercode</a></th>
+                        <th style="width: 33%"><a href="https://sheetcopilot.github.io/" target="_blank">SheetCopilot</a></th>
+                        <th style="width: 33%"><a href="https://github.com/snap-stanford/MLAgentBench" target="_blank">MLAgentBench</a></th>
+                        <th style="width: 33%"><a href="https://www.swebench.com/" target="_blank">SWEBench</a></th>
+                        <th style="width: 33%"><a href="https://osu-nlp-group.github.io/Mind2Web/" target="_blank">Mind2Web</a></th>
+                        <th style="width: 33%"><a href="https://mcgill-nlp.github.io/weblinx/" target="_blank">WEBLINX</a></th>
+                        <th style="width: 33%"><a href="https://huggingface.co/datasets/gaia-benchmark/GAIA" target="_blank">GAIA</a></th>
+                        <th style="width: 33%"><a href="https://webarena.dev/" target="_blank">WebArena</a></th>
+                        <th style="width: 33%"><a href="https://servicenow.github.io/WorkArena/" target="_blank">WorkArena</a></th>
+                        <th style="width: 33%"><a href="https://os-world.github.io/" target="_blank">OSWorld</a></th>
+                        <th style="width: 33%"><a href="https://github.com/google-research/google-research/tree/master/android_in_the_wild" target="_blank">AitW</a></th>
+                        <th style="width: 33%"><a href="https://google-research.github.io/android_world/" target="_blank">AndroidWorld</a></th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td>Text-to-SQL</td>
+                      <td>Data Science</td>
+                      <td>Data Science</td>
+                      <td>Data Science</td>
+                      <td>Sheet Coding</td>
+                      <td>Machine Learning</td>
+                      <td>Software Engineering</td>
+                      <td style="text-align: center; vertical-align: middle">Web</td>
+                      <td style="text-align: center; vertical-align: middle">Web</td>
+                      <td style="text-align: center; vertical-align: middle">Web</td>
+                      <td style="text-align: center; vertical-align: middle">Web</td>
+                      <td style="text-align: center; vertical-align: middle">Web</td>
+                      <td>Computer Control</td>
+                      <td style="text-align: center; vertical-align: middle">Android</td>
+                      <td style="text-align: center; vertical-align: middle">Android</td>
+                    </tr>
+                    <tr>
+                      <td>1034</td>
+                      <td>1000</td>
+                      <td>1082</td>
+                      <td>1350</td>
+                      <td>221</td>
+                      <td>13</td>
+                      <td>2294</td>
+                      <td>2000</td>
+                      <td>2337</td>
+                      <td>466</td>
+                      <td>812</td>
+                      <td>29</td>
+                      <td>369</td>
+                      <td>30k</td>
+                      <td>116</td>
+                    </tr>
+                    <tr>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>✔️</td>
+                      <td>❌</td>
+                      <td>✔️</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>✔️</td>
+                      <td>✔️</td>
+                      <td>✔️</td>
+                      <td>❌</td>
+                      <td>✔️</td>
+                    </tr>
+                    <tr>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>✔️</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                    </tr>
+                    <tr>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td>✔️</td>
+                      <td>✔️</td>
+                      <td>❌</td>
+                      <td>✔️</td>
+                      <td>✔️</td>
+                      <td>✔️</td>
+                      <td>✔️</td>
+                      <td>✔️</td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>3</td>
+                      <td>1</td>
+                      <td>4</td>
+                      <td>12</td>
+                      <td>137</td>
+                      <td>155</td>
+                      <td>n/a</td>
+                      <td>5</td>
+                      <td>1</td>
+                      <td>9</td>
+                      <td>357</td>
+                      <td>20</td>
+                    </tr>
+                    <tr>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>3</td>
+                      <td>0</td>
+                      <td>13</td>
+                      <td>1</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>5</td>
+                      <td>7</td>
+                      <td>134</td>
+                      <td>0</td>
+                      <td>6</td>
+                    </tr>
+                  </table>
+                </div>
 
 
-<section class="hero">
-  <div class="hero-body">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/ Data Statistics. -->
+    </div>
+  </section>
+
+  <section id="leaderboard">
+    <div class="container is-max-desktop">
+
+      <h2 class="title is-3">Benchmarking</h2>
+      <md-block>
+        We experiment with state-of-the-art LLMs and VLMs, including open-source representatives such as Mixtral-8x7B and Llama-3-70B, and closed-source ones including Qwen-Max, Gemini-Pro-1.5, Claude-3-Opus and GPT families (GPT-4o and GPT-4V). The baseline agent adopts three techniques: 1) Set-of-Mark (SoM), 2) Execution feedback (EF), and 3) Retrieval-augmented generation (RAG). We also split the overall results into different subsets, including <i>Abstract</i>, <i>Verbose</i>, <i>Account</i>, and <i>Non-account</i>.
+        **We are actively updating the benchmark with new LLMs, VLMs and methods. Pull requests welcomed!** 👏
+      </md-block>
+    </div>
+    <div class="cover" id="contentCover">
+      <!-- Baseline. -->
+      <div class="container-t">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="infoCard">
+              <div class="infoBody">
+                <div class="tabs is-centered example_lst2">
+                  <ul>
+                    <li class="is-active"><a title="All">All</a></li>
+                    <li><a title="Abstract">Abstract</a></li>
+                    <li><a title="Verbose">Verbose</a></li>
+                    <li><a title="Account">Account</a></li>
+                    <li><a title="Non-account">Non-account</a></li>
+                  </ul>
+
+                </div>
+                <script type="text/javascript">
+                  document.querySelectorAll(".example_lst2 li").forEach(e => {
+                    e.addEventListener("click", Click_2)
+                  })
+
+                  function Click_2(eve) {
+                    const iTxt = eve.srcElement.innerText
+                    for (let v of document.querySelectorAll(".example_lst2 a")) {
+                      if (iTxt === v.innerText) {
+                        v.parentElement.className = "is-active";
+                      } else {
+                        v.parentElement.className = "";
+                      }
+                    }
+                    for (let block of document.getElementsByClassName('lib_examples')) {
+                      if (block.id.includes("Board")) {
+                        block.style.display = (block.title === iTxt) ? 'block' : 'none';
+                      }
+                    }
+                  }
+
+                </script>
+                <div title="All" class="lib_examples" id="BoardPanel1" style="display: block;">
+                  <!-- <div class="content has-text-justified"> -->
+                  <md-block>
+                    **Notice:** t = temperature, top-p = top-p cutoff, len = max context length, a11ytree = accessibility tree
+                  </md-block>
+                  <!-- </div> -->
+                  <table class="table performanceTable">
+                    <tr>
+                      <th>Rank</th>
+                      <th>Model</th>
+                      <th>Details</th>
+                      <th>Score</th>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>1</p>
+                        <span class="date label label-default">
+                          Jun 3, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        GPT-4V (1106)
+                        <p class="institution">OpenAI</p>
+                        <a class="link" href="https://arxiv.org/abs/2303.08774">OpenAI, '23</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 128k</p>
+                      </td>
+                      <td style="vertical-align: middle">14.0</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>2</p>
+                        <span class="date label label-default">
+                          Jun 2, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        GPT-4o (0513)
+                        <p class="institution">OpenAI</p>
+                        <a class="link" href="https://openai.com/index/hello-gpt-4o/">OpenAI, '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 128k</p>
+                      </td>
+                      <td style="vertical-align: middle">13.8</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>3</p>
+                        <span class="date label label-default">
+                          Jun 5, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        Gemini-Pro-1.5
+                        <p class="institution">Google</p>
+                        <a class="link" href="https://arxiv.org/abs/2403.05530"> Gemini Team, Google, '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 128k</p>
+                      </td>
+                      <td style="vertical-align: middle">9.1</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>4</p>
+                        <span class="date label label-default">
+                          June 6, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        Claude-3-Opus
+                        <p class="institution">AnthropicAI</p>
+                        <a class="link"
+                          href="https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf">Anthropic,
+                          '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 200k</p>
+                      </td>
+                      <td style="vertical-align: middle">8.1</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>5</p>
+                        <span class="date label label-default">
+                          June 6, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        Llama-3-70B
+                        <p class="institution"> Meta</p>
+                        <a class="link" href="https://llama.meta.com/llama3"> Meta Llama,
+                          Meta, '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>a11ytree + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 32k</p>
+                      </td>
+                      <td style="vertical-align: middle">2.0</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>6</p>
+                        <span class="date label label-default">
+                          June 6, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        Mixtral-8x7B
+                        <p class="institution">MistralAI</p>
+                        <a class="link" href="https://arxiv.org/abs/2401.04088">Jiang et al., '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>a11ytree + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 32k</p>
+                      </td>
+                      <td style="vertical-align: middle">0.8</td>
+                    </tr>
+
+                
+                    <tr>
+                      <td>
+                        <p>7</p>
+                        <span class="date label label-default">
+                          June 6, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        Qwen-Max
+                        <p class="institution">Qwen</p>
+                        <a class="link" href="https://github.com/QwenLM/Qwen-VL">Qwen Team, '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>a11ytree + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 32k</p>
+                      </td>
+                      <td style="vertical-align: middle">0.6</td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div title="Abstract" class="lib_examples" id="BoardPanel2" style="display: none;">
+                  <!-- <div class="content has-text-justified"> -->
+                  <md-block>
+                    **Notice:** t = temperature, top-p = top-p cutoff, len = max context length<br>
+                    <i>“Abstract”</i> means the instruction only gives the high-level goal of the task without detailed steps.
+                  </md-block>
+                  <!-- </div> -->
+                  <table class="table performanceTable">
+                    <tr>
+                      <th>Rank</th>
+                      <th>Model</th>
+                      <th>Details</th>
+                      <th>Score</th>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>1</p>
+                        <span class="date label label-default">
+                          Jun 3, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        GPT-4V (1106)
+                        <p class="institution">OpenAI</p>
+                        <a class="link" href="https://arxiv.org/abs/2303.08774">OpenAI, '23</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 128k</p>
+                      </td>
+                      <td style="vertical-align: middle">11.3</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>1</p>
+                        <span class="date label label-default">
+                          Jun 2, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        GPT-4o (0513)
+                        <p class="institution">OpenAI</p>
+                        <a class="link" href="https://openai.com/index/hello-gpt-4o/">OpenAI, '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 128k</p>
+                      </td>
+                      <td style="vertical-align: middle">11.3</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>3</p>
+                        <span class="date label label-default">
+                          Jun 5, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        Gemini-Pro-1.5
+                        <p class="institution">Google</p>
+                        <a class="link" href="https://arxiv.org/abs/2403.05530"> Gemini Team, Google, '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 128k</p>
+                      </td>
+                      <td style="vertical-align: middle">6.1</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>4</p>
+                        <span class="date label label-default">
+                          June 6, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        Claude-3-Opus
+                        <p class="institution">AnthropicAI</p>
+                        <a class="link"
+                          href="https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf">Anthropic,
+                          '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 200k</p>
+                      </td>
+                      <td style="vertical-align: middle">5.3</td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div title="Verbose" class="lib_examples" id="BoardPanel3" style="display: none;">
+
+                  <!-- <div class="content has-text-justified"> -->
+                  <md-block>
+                    **Notice:** t = temperature, top-p = top-p cutoff, len = max context length<br>
+                    <i>“Verbose”</i> means the instruction also gives a detailed step-by-step guidance on how to finish the task.
+                  </md-block>
+                  <!-- </div> -->
+
+                  <table class="table performanceTable">
+                    <tr>
+                      <th>Rank</th>
+                      <th>Model</th>
+                      <th>Details</th>
+                      <th>Score</th>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>1</p>
+                        <span class="date label label-default">
+                          Jun 3, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        GPT-4V (1106)
+                        <p class="institution">OpenAI</p>
+                        <a class="link" href="https://arxiv.org/abs/2303.08774">OpenAI, '23</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 128k</p>
+                      </td>
+                      <td style="vertical-align: middle">16.6</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>2</p>
+                        <span class="date label label-default">
+                          Jun 2, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        GPT-4o (0513)
+                        <p class="institution">OpenAI</p>
+                        <a class="link" href="https://openai.com/index/hello-gpt-4o/">OpenAI, '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 128k</p>
+                      </td>
+                      <td style="vertical-align: middle">16.2</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>3</p>
+                        <span class="date label label-default">
+                          Jun 5, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        Gemini-Pro-1.5
+                        <p class="institution">Google</p>
+                        <a class="link" href="https://arxiv.org/abs/2403.05530"> Gemini Team, Google, '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 128k</p>
+                      </td>
+                      <td style="vertical-align: middle">12.1</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>4</p>
+                        <span class="date label label-default">
+                          June 6, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        Claude-3-Opus
+                        <p class="institution">AnthropicAI</p>
+                        <a class="link"
+                          href="https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf">Anthropic,
+                          '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 200k</p>
+                      </td>
+                      <td style="vertical-align: middle">10.9</td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div title="Account" class="lib_examples" id="BoardPanel4" style="display: none;">
+                  <md-block>
+                    **Notice:** t = temperature, top-p = top-p cutoff, len = max context length<br>
+                    <i>“Account”</i> means authentic user accounts (e.g., <i>BigQuery</i>, <i>Snowflake</i>) are needed to finish tasks in this split.
+                  </md-block>
+                  <table class="table performanceTable">
+                    <tr>
+                      <th>Rank</th>
+                      <th>Model</th>
+                      <th>Details</th>
+                      <th>Score</th>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>1</p>
+                        <span class="date label label-default">
+                          Jun 3, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        GPT-4V (1106)
+                        <p class="institution">OpenAI</p>
+                        <a class="link" href="https://arxiv.org/abs/2303.08774">OpenAI, '23</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 128k</p>
+                      </td>
+                      <td style="vertical-align: middle">11.2</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>2</p>
+                        <span class="date label label-default">
+                          Jun 2, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        GPT-4o (0513)
+                        <p class="institution">OpenAI</p>
+                        <a class="link" href="https://openai.com/index/hello-gpt-4o/">OpenAI, '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 128k</p>
+                      </td>
+                      <td style="vertical-align: middle">10.6</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>3</p>
+                        <span class="date label label-default">
+                          Jun 5, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        Gemini-Pro-1.5
+                        <p class="institution">Google</p>
+                        <a class="link" href="https://arxiv.org/abs/2403.05530"> Gemini Team, Google, '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 128k</p>
+                      </td>
+                      <td style="vertical-align: middle">8.8</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>4</p>
+                        <span class="date label label-default">
+                          June 6, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        Claude-3-Opus
+                        <p class="institution">AnthropicAI</p>
+                        <a class="link"
+                          href="https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf">Anthropic,
+                          '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 200k</p>
+                      </td>
+                      <td style="vertical-align: middle">5.9</td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div title="Non-account" class="lib_examples" id="BoardPanel5" style="display: none;">
+
+                  <md-block>
+                    **Notice:** t = temperature, top-p = top-p cutoff, len = max context length<br>
+                    <i>“Non-account”</i> means authentic user accounts are not needed, or tasks in this split can be completed in local host.
+                  </md-block>
+
+                  <table class="table performanceTable">
+                    <tr>
+                      <th>Rank</th>
+                      <th>Model</th>
+                      <th>Details</th>
+                      <th>Score</th>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>1</p>
+                        <span class="date label label-default">
+                          Jun 2, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        GPT-4o (0513)
+                        <p class="institution">OpenAI</p>
+                        <a class="link" href="https://openai.com/index/hello-gpt-4o/">OpenAI, '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 128k</p>
+                      </td>
+                      <td style="vertical-align: middle">15.6</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>2</p>
+                        <span class="date label label-default">
+                          Jun 3, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        GPT-4V (1106)
+                        <p class="institution">OpenAI</p>
+                        <a class="link" href="https://arxiv.org/abs/2303.08774">OpenAI, '23</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 128k</p>
+                      </td>
+                      <td style="vertical-align: middle">15.4</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>3</p>
+                        <span class="date label label-default">
+                          Jun 5, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        Gemini-Pro-1.5
+                        <p class="institution">Google</p>
+                        <a class="link" href="https://arxiv.org/abs/2403.05530"> Gemini Team, Google, '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 128k</p>
+                      </td>
+                      <td style="vertical-align: middle">9.3</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <p>3</p>
+                        <span class="date label label-default">
+                          June 6, 2024
+                        </span>
+                      </td>
+                      <td style="word-break:break-word;">
+                        Claude-3-Opus
+                        <p class="institution">AnthropicAI</p>
+                        <a class="link"
+                          href="https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf">Anthropic,
+                          '24</a>
+                      </td>
+                      <td style="word-break:break-word;">
+                        <p>SoM + EF + RAG</p>
+                        <p>t=1.0, top-p=0.9</p>
+                        <p>len = 200k</p>
+                      </td>
+                      <td style="vertical-align: middle">9.3</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Analysis Section -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Analysis. -->
+      <h2 class="title is-3">Analysis</h2>
+      <md-block>
+        We delve into different factors (e.g., action space, observation space, various techniques, and two hyper-parameters) which influence the eventual success rates. The baseline agent is GPT-4o.
+      </md-block>
+      <br>
+      <div class="carousel-container-analysis">
+        <!-- <button class="carousel-button-analysis left" onclick="scrollLeft()">&lt;</button> -->
+        <div id="findings-carousel" class="carousel-analysis">
+          <div class="carousel-item-analysis">
+            <img src="static/images/ablation.png" alt="" class="responsive-image">
+            <md-block>
+              **Action space**: pyautogui code > JSON dict;
+              **Observation space**: a11ytree > screenshot;
+              All three schemes (**SoM, EF, RAG**) contribute to the eventual success.
+            </md-block>
+          </div>
+          <div class="carousel-item-analysis">
+            <img src="static/images/temperature.png" alt="" class="responsive-image">
+            <md-block>
+              The top-ranked result is achieved with a **moderate** sampling temperature **0.5**.
+            </md-block>
+          </div>
+          <div class="carousel-item-analysis">
+            <img src="static/images/trajectory.png" alt="" class="responsive-image">
+            <md-block>
+              Enlarging history window size **improves performances** but leads to **inefficiency**.
+            </md-block>
+          </div>
+        </div>
+        <!-- <button class="carousel-button-analysis right" onclick="scrollRight()">&gt;</button> -->
+      </div>
+      <!--/ Analysis. -->
+    </div>
+  </section>
+
+  <section class="section">
+    <!-- <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="container is-max-desktop">
+      <div class="column">
+        <h2 class="title is-3">Videos</h2>
+        <md-block>
+          Special thanks to the following YouTubers and enthusiasts for their reports. We are delighted to see the community's interest. If you would like a brief video introduction and their thoughts, feel free to check them out!
+        </md-block>
+        <br>
+        <div id="carousel" class="carousel-container-videos">
+          <div class="carousel-track-videos">
+            <div class="carousel-item-videos">
+              <div class="content">
+                <div class="publication-video">
+                  <iframe src="https://www.youtube.com/embed/tRavLU8Ih4A?start=1300" frameborder="0"
+                    allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <h3 class="title is-4">@Yannic Kilcher</h3>
+              </div>
+            </div>
+            <div class="carousel-item-videos">
+              <div class="content">
+                <div class="publication-video">
+                  <iframe src="https://www.youtube.com/embed/hrPQS__ayu8?rel=0&amp;showinfo=0" frameborder="0"
+                    allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <h3 class="title is-4">@Wes Roth</h3>
+              </div>
+            </div>
+            <div class="carousel-item-videos">
+              <div class="content">
+                <div class="publication-video">
+                  <iframe src="https://www.youtube.com/embed/slthKMDR0uo?rel=0&amp;t=2953s;showinfo=0" frameborder="0"
+                    allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <h3 class="title is-4">@hu-po</h3>
+              </div>
+            </div>
+            <div class="carousel-item-videos">
+              <div class="content">
+                <div class="publication-video">
+                  <iframe src="https://www.youtube.com/embed/gBb5cs6hj4U?start=1236"
+                    title="GPT-6 Leaks: Truth or Fiction?" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h3 class="title is-4">@Dylan Curious</h3>
+              </div>
+            </div>
+            <div class="carousel-item-videos">
+              <div class="content">
+                <div class="publication-video">
+                  <iframe src="https://www.youtube.com/embed/zm1_Huwb26I?rel=0&amp;t=2953s;showinfo=0" frameborder="0"
+                    allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <h3 class="title is-4">@WorldofAI</h3>
+              </div>
+            </div>
+            <div class="carousel-item-videos">
+              <div class="content">
+                <div class="publication-video">
+                  <iframe src="https://www.youtube.com/embed/uz1QiM0Yxw0?rel=0&amp;showinfo=0" frameborder="0"
+                    allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <h3 class="title is-4">@Gourcer</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+      </div>
+    </div>
+    <br> -->
     <div class="container is-max-desktop">
       <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">NL2SQL360: A Multi-angle Evaluation Framework</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://liboyan.vip">Boyan Li</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://luoyuyu.vip">Yuyu Luo</a><sup>1,2</sup>,</span>
-            <span class="author-block">
-              <a href="https://dbgroup.cs.tsinghua.edu.cn/chaicl/">Chengliang Chai</a><sup>3</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://dbgroup.cs.tsinghua.edu.cn/ligl/">Guoliang Li</a><sup>4</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://nantang.github.io/">Nan Tang</a><sup>1,2</sup>,
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>HKUST(GZ),</span>
-            <span class="author-block"><sup>2</sup>HKUST,</span>
-            <span class="author-block"><sup>3</sup>Beijing Institute of Technology,</span>
-            <span class="author-block"><sup>4</sup>Tsinghua University</span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="https://www.vldb.org/pvldb/vol17/p3318-luo.pdf"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/HKUSTDial/NL2SQL360"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                </a>
-              </span>
-              <!-- Package Link. -->
-              <span class="link-block">
-                <a href="https://pypi.org/project/nl2sql360/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fa fa-cube"></i>
-                  </span>
-                  <span>PyPi</span>
-                </a>
-              </span>
-              <!-- Experiment Data Link. -->
-              <span class="link-block">
-                <a href="https://drive.google.com/drive/folders/1SDwY30H2r6XNYeS53wcZNocVFm0hVgpz"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fa fa-database"></i>
-                  </span>
-                  <span>Experiment Data</span>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
-    </div>
-  </div>
-</section>
+        <div class="column is-full-width">
+          <h2 class="title is-3">Acknowledgement</h2>
 
 
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
-          </p>
-          <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
+          <div class="content has-text-justified">
             <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
+              We thank <a href="https://yihengxu.com/">Yiheng Xu</a>, <a href="https://hongjin-su.github.io/">Hongjin Su</a>, <a href="https://xiaochuanli.com/">Xiaochuan Li</a>, and <a href="https://me.tjh.sg/">Toh Jing Hua</a> for their helpful assistance and feedback on this work.
             </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
           </div>
-
         </div>
       </div>
     </div>
-    <!--/ Matting. -->
-
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
-
-      </div>
     </div>
-    <!--/ Animation. -->
+  </section>
 
-
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
-        </div>
-      </div>
+  <section class="section">
+  <!-- FAQ. -->
+  <div class="container is-max-desktop faq-container">
+    <h2 class="title is-3 faq-title">FAQ</h2>
+    <div class="faq-item">
+      <h3 class="faq-question">Where to download the resources?</h3>
+      <p class="faq-answer">The Github repository, virtual machine snapshots, crawled documents can be downloaded from:<br>
+        - <strong>Github repository:</strong> <a href="https://github.com/xlang-ai/Spider2-V/tree/main">Spider2-V (including environment and task examples)</a> <br>
+        - <strong>VM snapshots:</strong> <a href="https://huggingface.co/datasets/xlangai/ubuntu_spider2v/resolve/main/ubuntu-arm.zip?download=true">ubuntu-arm.zip</a> or <a href="https://huggingface.co/datasets/xlangai/ubuntu_spider2v/resolve/main/ubuntu-x86.zip?download=true">ubuntu-x86.zip</a> <br>
+        - <strong>Crawled documents</strong> <a href="https://drive.usercontent.google.com/download?id=1aGaHXDkBeoUZ9EOIPj7iIRFra_2FjJoZ&export=download&authuser=0&confirm=t">docs.zip</a>
+      </p>
     </div>
-    <!--/ Concurrent Work. -->
+  
+    <div class="faq-item">
+      <h3 class="faq-question">What is the username and password for the virtual machines?</h3>
+      <p class="faq-answer">The username and password for the virtual machines are as follows:<br>
+        - <strong>Username:</strong> <code>user</code> <br>
+        - <strong>Password:</strong> <code>password</code>
+      </p>
+    </div>
 
+    <div class="faq-item">
+      <h3 class="faq-question">How to tackle task examples requiring accounts?</h3>
+      <p class="faq-answer">See <a href="https://github.com/xlang-ai/Spider2-V/blob/main/ACCOUNT_GUIDELINE.md">Account Guideline</a>.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3 class="faq-question">How can I configure a proxy for the VM if I'm behind a GFW?</h3>
+      <p class="faq-answer">See <a href="https://github.com/xlang-ai/Spider2-V/blob/main/PROXY_GUIDELINE.md">Proxy Guideline</a>.</p>
+    </div>
+  
+    <div class="faq-item">
+      <h3 class="faq-question">I still have problems when using Spider2-V, where can I find support?</h3>
+      <p class="faq-answer">You can put forward an issue on the <a href="https://github.com/xlang-ai/Spider2-V">Github</a> repository or email to <a href="mailto:ruishengcao@gmail.com" style="text-decoration: underline;">ruishengcao@gmail.com</a> , <a href="mailto:tyu@cs.hku.hk" style="text-decoration: underline;">tyu@cs.hku.hk</a> .
+      </p>
+    </div>
+
+    <!-- <div class="faq-item">
+      <h3 class="faq-question">What are the running times and costs under different settings?</h3>
+      <p class="faq-answer">
+        <table>
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th>Expected Time*</th>
+              <th>Budget Cost (Full Test Set/Small Test Set)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GPT-4V (screenshot)</td>
+              <td>10h</td>
+              <td>$100 ($10)</td>
+            </tr>
+            <tr>
+              <td>Gemini-ProV (screenshot)</td>
+              <td>15h</td>
+              <td>0 (0)</td>
+            </tr>
+            <tr>
+              <td>Claude-3 Opus (screenshot)</td>
+              <td>15h</td>
+              <td>$150 ($15)</td>
+            </tr>
+            <tr>
+              <td>GPT-4V (a11y tree, SoM, etc.)</td>
+              <td>30h</td>
+              <td>$500 ($50)</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="faq-note">*No environment parallelism. Calculated in April 2024.</p>
+      </p>
+    </div> -->
   </div>
 </section>
 
 
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{2024-spider2v,
+    title={Spider2-V: How Far Are Multimodal Agents From Automating Data Science and Engineering Workflows?}, 
+    author={Ruisheng Cao and Fangyu Lei and Haoyuan Wu and Jixuan Chen and Yeqiao Fu and Hongcheng Gao and Xinzhuang Xiong and Hanchong Zhang and Yuchen Mao and Wenjing Hu and Tianbao Xie and Hongshen Xu and Danyang Zhang and Sida Wang and Ruoxi Sun and Pengcheng Yin and Caiming Xiong and Ansong Ni and Qian Liu and Victor Zhong and Lu Chen and Kai Yu and Tao Yu},
+    year={2024},
+    journal={CoRR},
+    volume={abs/2407.10956},
+    eprint={2407.10956},
+    eprinttype={arXiv},
+    url={https://arxiv.org/abs/2407.10956}
 }</code></pre>
-  </div>
-</section>
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
     </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://huggingface.co/papers/">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/xlang-ai/Spider2-V" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+              Please remember to remove the analytics code included in the header of the website which
+              you do not want on your website.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
+
 </html>

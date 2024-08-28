@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Enhanced Data Explorer with Bulma</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/explorer.css">
+    <!-- coding environment -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+    <style>
+        .is-halfheight {
+            height: 50vh;
+            overflow-y: scroll;
+        }
+
+        .gpt_icon {
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        .category {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .task-list {
+            border: none;
+        }
+
+        .task-list:hover {
+            background-color: #f2f0f0;
+        }
+
+        .active,
+        .category:hover {
+            background-color: #ccc;
+        }
+
+        .task-active {
+            background-color: #f3f0f0;
+        }
+
+        .category:after {
+            content: "\002B";
+            color: #000000;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .categorycontainer {
+
+            max-height: 180vh;
+            overflow-y: scroll;
+        }
+
+        .label {
+            padding: 5px;
+            width: 40%;
+        }
+
+        .other {
+            background-color: #e7e7e7;
+            color: rgb(82, 81, 81);
+            font-size: small;
+            width: 40%;
+            height: 22px;
+            position: relative;
+        }
+
+        .taskid-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .taskid-label {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #f2f2f2;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .highlight-quote {
+            background-color: #f9f9f9; /* Light background color */
+            border-left: 4px solid #007BFF; /* Blue left border */
+            padding: 10px 15px; /* Padding inside the block */
+            margin: 15px 0; /* Margin around the block */
+            color: #333; /* Text color */
+        }
+        .highlight-quote-title {
+            font-weight: bold; /* Bold font for title */
+            margin-top: 0; /* Remove top margin */
+            margin-bottom: 10px; /* Space between title and content */
+            color: #007BFF; /* Same color as the border */
+        }
+        .highlight-quote-content {
+            font-style: italic; /* Italic font style for content */
+            max-height: 180px; /* Max height for the content */
+            overflow: auto; /* Add scrollbars if needed */
+        }
+    </style>
+</head>
+
+<body>
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+
+    <section class="section is-max-desktop">
+        <div class="container">
+            <h2 class="title is-3" style="display: inline-block; vertical-align: middle;"><img src="static/images/favicon.png" style="height: 2.4em; width: auto; vertical-align: middle;"/> Spider2-V Task Explorer</h2>
+            <div class="notification is-info">
+                <md-block>
+                    Below we show a small subset of <a href="https://spider2-v.github.io/"><b>Spider2-V</b></a> tasks, which allows you to explore the tasks in detail.<br>
+                    Only tasks that GPT-4o succeeds to solve are presented (relatively simple). More difficult tasks with ground-truth actions will be added in the future.
+                </md-block>
+            </div>
+
+            <div class="columns">
+                <div class="column is-one-quarter categorycontainer" id="categoriesContainer">
+
+                </div>
+                <div class="column is-three-quarter">
+                    <!-- Data Explorer UI Portions -->
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="content">
+                                <div class="box">
+                                    <div>
+                                        <b>Task id:</b>
+                                        <span class="taskid-label" id="taskid-text">uuid of the selected task</span>
+                                        
+                                        <h6 class="title is-6"></h6>
+                                        <div id="status-flag">
+                                            <b>Status:</b>
+                                            <span class="tag-success">success</span> or <span class="tag-failure">failure</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <h5>Instruction</h5>
+                                    <div id="tag-list">
+                                        <b>Tags:</b>
+                                        <span class="tag-abstract">abstract</span>
+                                        <span class="tag-verbose">verbose</span>
+                                        <span class="tag-account">account</span>
+                                        <span class="tag-cli">cli</span>
+                                        <span class="tag-gui">gui</span>
+                                        <span class="tag-cli-gui">cli+gui</span>
+                                        <span class="tag-easy">easy</span>
+                                        <span class="tag-medium">medium</span>
+                                        <span class="tag-hard">hard</span>
+                                    </div>
+                                    <div class="highlight-quote">
+                                        <div class="highlight-quote-content" id="instruction-text">
+                                            Select a task on the left panel to view the instruction.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box">
+                                    <h5>Recording</h5>
+                                    <div class="column has-text-centered is-vcentered"
+                                        style="font-weight: 300; font-size: 1.1em" id="videoPrompt">&#x2020;
+                                        Select a task on the left panel to view the recording.</div>
+                                    <video controls muted loop autoplay id="recordingViewer" src="" style="display: block; width: 100%; margin: 0 auto; object-fit: contain; object-position: center;">
+                                    </video>
+                                </div>
+
+                                <div class="box">
+                                    <h5>Actions</h5>
+                                    <pre class="line-numbers" data-language="python" style="max-width: 100%; max-height: 500px; overflow: auto; white-space: pre-wrap;"><code class="language-python" id="action-text">## Action 1
+action1
+
+## Aciton 2
+action2
+
+## Aciton 3
+action3
+
+...</code></pre></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            fetch('./static/data/task_ids.json')
+                .then(response => response.json())
+                .then(jsonData => {
+                    const container = document.getElementById('categoriesContainer');
+
+                    Object.keys(jsonData).forEach(category => {
+                        var number = 0;
+                        // Create category button
+                        const catButton = document.createElement('button');
+                        catButton.textContent = category;
+                        catButton.classList.add('category');
+                        container.appendChild(catButton);
+                        var i;
+
+
+                        // Create hidden list for task IDs
+                        const taskList = document.createElement('ul');
+                        taskList.classList.add('panel');
+                        jsonData[category].forEach(taskId => {
+                            const listItem = document.createElement('li');
+                            listItem.classList.add('task-list');
+                            number++;
+                            listItem.textContent = `Task ${number}`;
+
+                            taskList.appendChild(listItem);
+                            listItem.addEventListener('click', () => {
+                                // Load the task data and update the UI
+                                fetch(`./static/data/task_examples.json`)
+                                    .then(response => response.json())
+                                    .then(taskData => {
+                                        // Update the instruction and action text
+                                        for (i = 0; i < taskData.length; i++) {
+                                            if (taskData[i].domain == category && taskData[i].id == taskId) {
+                                                taskData = taskData[i];
+                                                break;
+                                            }
+                                        }
+                                        document.getElementById('taskid-text').innerHTML = taskId;
+                                        document.getElementById('status-flag').innerHTML = `<b>Status:</b> <span class="tag-${taskData.status}">${taskData.status}</span>`;
+                                        document.getElementById('instruction-text').innerText = taskData.instruction;
+                                        document.getElementById('tag-list').innerHTML = `<b>Tags:</b> ${taskData.tags.map(tag => {
+                                            if (tag === 'cli-gui') {
+                                                return `<span class="tag-cli-gui">cli+gui</span>`;
+                                            } else {
+                                                return `<span class="tag-${tag}">${tag}</span>`;
+                                            }
+                                            }).join(' ')}`;
+                                        
+                                        // action code block
+                                        document.getElementById('action-text').innerHTML = taskData.actions;
+                                        Prism.highlightAll();
+                                        
+                                        // adjuest the video prompt according to agents or models
+                                        document.getElementById('videoPrompt').innerHTML = `&#x2020;
+                                        Video recordings and action trajectory are created by &thinsp;  
+                                        <a href="https://openai.com/index/hello-gpt-4o/">OpenAI GPT-4o</a>
+                                        <img class="gpt_icon" src="static/images/chatgpt.png" width="20" height="20">`;
+
+                                        // Update the recording viewer
+                                        document.getElementById('recordingViewer').src = `./static/videos/${taskData.id}.mp4`;
+                                    });
+                            });
+                            listItem.addEventListener("click", function () {
+                                var preClick = document.getElementsByClassName("task-list");
+                                for (i = 0; i < preClick.length; i++) {
+                                    preClick[i].classList.remove("task-active");
+                                }
+                                listItem.classList.toggle("task-active");
+                            });
+
+                        });
+                        container.appendChild(taskList);
+
+                    });
+                    var acc = document.getElementsByClassName("category");
+                    for (i = 0; i < acc.length; i++) {
+                        acc[i].addEventListener("click", function () {
+                            this.classList.toggle("active");
+                            var panel = this.nextElementSibling;
+                            if (panel.style.maxHeight) {
+                                panel.style.maxHeight = null;
+                            } else {
+                                panel.style.maxHeight = panel.scrollHeight + "px";
+                            }
+                        });
+                    }
+
+                })
+                .catch(error => console.error('Error loading the JSON file:', error));
+        });
+    </script>
+
+
+</body>
+
+</html>
